@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vier Gewinnt gegen den Computer</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   </head>
 
   <body>
-    <div class="container"></div>
+    <div class="top-bar">
+        
+        
+        <button id="fullscreen-toggle" class="material-icons">fullscreen</button>
+
+      </div>
+      
+    <div class="hintergrund"></div>
     <h1>Vier Gewinnt</h1>
     <div>
       <div id="game-board"></div>
@@ -30,7 +39,7 @@
 
     <div class="info">
       <p id="status">Spieler (Rot) ist dran!</p>
-      <button onclick="resetGame()">Neues Spiel</button>
+      <button class="neuesSpiel" onclick="resetGame()">Neues Spiel</button>
     </div>
 
     <script src="script.js"></script>

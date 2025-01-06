@@ -4,7 +4,47 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden
+  overflow: hidden;
+  padding-top: -50px;
+}
+/* Balken oben */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 99%;
+  height: 80px; /* Höhe des Balkens */
+  display: flex;
+  justify-content: flex-end; /* Button rechts */
+  align-items: center;
+  padding-right: 16px; /* Abstand zum Rand */
+  z-index: 200;
+ 
+  
+}
+.button .icon svg {
+  height: 100%;
+  width: 100%;
+  fill: #ffffff;
+ 
+}
+
+.container input:checked + .button .icon svg {
+  fill: rgb(77, 124, 255);
+  animation: animeFill 0.3s linear alternate-reverse infinite;
+}
+
+/* Button im Balken */
+#fullscreen-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+#fullscreen-toggle:hover {
+  color: #ffcc00;
 }
 
 h1 {
@@ -20,10 +60,11 @@ h1 {
   width: 315px; /* Spielfeld-Breite angepasst */
   height: 270px; /* Spielfeld-Höhe angepasst */
   padding: 1vh;
-  border: 4px outset #599dd4;
-  background-color: #005380;
-  border-radius: 10px;
+  border: 2px outset rgba(69, 144, 243, 0.5);
+  background-color: rgba(9, 44, 90, 0.5) ;
+  border-radius: 15px;
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+  
 }
 
 .cell {
@@ -74,21 +115,25 @@ h1 {
   color: white;
 }
 
-button {
+.neuesSpiel {
   margin-top: 10px;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #005380;
+  background-color: rgba(9, 44, 90, 0.5) ;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  border: 4px outset #599dd4;
+  border: 2px outset rgba(69, 144, 243, 0.5);
+  font-weight: 700;
+  transform: scale(1); /* Ausgangszustand, um den Übergang zu definieren */
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 button:hover {
   background-color: #005f91;
+  transform: scale(1.05);
 }
 #fireworks-video,
 #loss-image {
@@ -127,7 +172,7 @@ button:hover {
 More comprehensive version at shenanigans.shoghisimon.ca/collection/css-blur-blob-bg/
  */
 
- .container::after {
+ .hintergrund::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -139,7 +184,7 @@ More comprehensive version at shenanigans.shoghisimon.ca/collection/css-blur-blo
   
 }
 
-.container {
+.hintergrund{
   position: absolute;
   background-image: radial-gradient(
     circle at 50% 50%,
@@ -162,7 +207,7 @@ More comprehensive version at shenanigans.shoghisimon.ca/collection/css-blur-blo
   }
 }
 
-.container::before {
+.hintergrund::before {
   content: "";
   position: absolute;
   inset: -8em;

@@ -266,3 +266,14 @@ function checkWin(row, col) {
 
     return false;
 }
+document.getElementById('fullscreen-toggle').addEventListener('click', () => {
+    const fullscreenButton = document.getElementById('fullscreen-toggle');
+    
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen(); // Vollbildmodus starten
+        fullscreenButton.textContent = 'fullscreen_exit'; // Symbol auf Vollbild verlassen ändern
+    } else {
+        document.exitFullscreen(); // Vollbildmodus verlassen
+        fullscreenButton.textContent = 'fullscreen'; // Symbol zurück auf Vollbild aktivieren ändern
+    }
+});
