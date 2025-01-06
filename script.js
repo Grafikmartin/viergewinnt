@@ -277,25 +277,3 @@ document.getElementById('fullscreen-toggle').addEventListener('click', () => {
         fullscreenButton.textContent = 'fullscreen'; // Symbol zurück auf Vollbild aktivieren ändern
     }
 });
-function getRandomDarkColor() {
-    let base = 40; // Basiswert für dunklere Farben
-    let range = 80; // Farbabweichung
-    let r = Math.floor(Math.random() * range) + base;
-    let g = Math.floor(Math.random() * range) + base;
-    let b = Math.floor(Math.random() * range) + base;
-    return `rgb(${r}, ${g}, ${b})`;
-  }
-  
-  function updateGradientColors() {
-    const color1 = getRandomDarkColor();
-    const color2 = getRandomDarkColor();
-    const color3 = getRandomDarkColor();
-  
-    document.querySelector(".hintergrund").style.background = `
-      radial-gradient(circle, ${color1}, ${color2}, ${color3})
-    `;
-  }
-  
-  // Alle 60 Sekunden neue Farben setzen
-  setInterval(updateGradientColors, 60000);
-  

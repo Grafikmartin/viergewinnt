@@ -168,34 +168,32 @@ button:hover {
     font-weight: 700;
 }
 /* From Uiverse.io by SelfMadeSystem */ 
-/*
-More comprehensive version at shenanigans.shoghisimon.ca/collection/css-blur-blob-bg/
- */
 
+body {
+  margin: 0;
+  overflow: hidden;
+}
 
- .hintergrund {
+.hintergrund {
   width: 100%;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  background: radial-gradient(circle, #13283C, #B0C89E, #E66E47);
-  animation: colorShift 20s infinite alternate ease-in-out;
-  transition: background 10s ease-in-out; /* Längere Übergangszeit */
+  background: linear-gradient(135deg, #13283C, #9e0096, #E66E47);
+  background-size: 200% 200%;
+  animation: gradientShift 15s infinite alternate ease-in-out;
   z-index: -1;
 }
 
-/* Animation für die Verschiebung der Gradienten */
-@keyframes colorShift {
+@keyframes gradientShift {
   0% {
     background-position: 0% 0%;
-    background-size: 180% 180%;
   }
   50% {
     background-position: 50% 50%;
   }
   100% {
     background-position: 100% 100%;
-    background-size: 140% 140%;
   }
 }
