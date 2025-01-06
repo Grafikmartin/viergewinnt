@@ -203,3 +203,66 @@ function resetGame() {
 }
 
 createBoard();
+
+function chooseFirstPlayer() {
+    const random = Math.random(); // Zufallsgenerierung
+    if (random < 0.5) {
+        currentPlayer = "red";  // Spieler beginnt
+        statusText.textContent = "Spieler (Rot) beginnt!";
+    } else {
+        currentPlayer = "yellow";  // Computer beginnt
+        statusText.textContent = "Der Computer (Gelb) beginnt!";
+        setTimeout(computerMove, 500);  // Computerzug nach kurzem Warten
+    }
+}
+
+function resetGame() {
+    createBoard();
+    chooseFirstPlayer();  // Auslosung, wer beginnt
+}
+
+function showWinEffect(winner) {
+    if (winner === "red") {
+        // Feuerwerk abspielen und Gewinnertext einblenden
+        const fireworksVideo = document.getElementById("fireworks-video");
+        fireworksVideo.classList.remove("hidden");
+        const winnerText = document.createElement("div");
+        winnerText.textContent = "Du hast gewonnen!";
+        winnerText.classList.add("winner-text");
+        document.body.appendChild(winnerText);
+
+        setTimeout(() => {
+            fireworksVideo.classList.add("hidden");
+            document.body.removeChild(winnerText);
+        }, 5000); // Video nach 5 Sekunden ausblenden
+    } else {
+        // Bild anzeigen bei Verlust
+        const lossImage = document.getElementById("loss-image");
+        lossImage.classList.remove("hidden");
+
+        setTimeout(() => {
+            lossImage.classList.add("hidden");
+        }, 5000); // Bild nach 5 Sekunden ausblenden
+    }
+}
+function checkWin(row, col) {
+    const directions = [
+        { r: 0, c: 1 },  // Horizontal
+        { r: 1, c: 0 },  // Vertikal
+        { r: 1, c: 1 },  // Diagonal rechts unten
+        { r: 1, c: -1 }  // Diagonal links unten
+    ];
+
+    for (let { r, c } of directions) {
+        let count = 1;
+        count += countDirection(row, col, r, c);
+        count += countDirection(row, col, -r, -c);
+
+        if (count >= 4) {
+            showWinEffect(currentPlayer);  // Zeige Feuerwerk oder Verlustbild
+            return true;
+        }
+    }
+
+    return false;
+}

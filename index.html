@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="de">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vier Gewinnt gegen den Computer</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-    <h1>Vier Gewinnt - Spiele gegen den Computer</h1>
-    <div id="game-board"></div>
+  <body>
+    <div class="container"></div>
+    <h1>Vier Gewinnt</h1>
+    <div>
+      <div id="game-board"></div>
+    </div>
+    <!-- Feuerwerk-Video -->
+    <video
+      id="fireworks-video"
+      class="hidden"
+      src="assets/knaller.mp4"
+      muted
+      autoplay
+      loop
+    ></video>
+
+    <!-- Verliererbild -->
+    <div id="loss-image" class="hidden">
+      <img src="assets/youloose.jpg" alt="Verloren" />
+    </div>
+
     <div class="info">
-        <p id="status">Spieler (Rot) ist dran!</p>
-        <button onclick="resetGame()">Neues Spiel</button>
+      <p id="status">Spieler (Rot) ist dran!</p>
+      <button onclick="resetGame()">Neues Spiel</button>
     </div>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
