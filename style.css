@@ -239,22 +239,3 @@ body {
   }
 }
 
-@media (max-width: 480px) {
-  #game-board {
-    width: 90%;
-    height: 60vmin;
-  }
-
-  h1 {
-    font-size: 1.2rem;
-  }
-
-  .neuesSpiel {
-    font-size: 0.8rem;
-    padding: 5px 10px;
-  }
-
-  #status {
-    font-size: 1rem;
-  }
-}
