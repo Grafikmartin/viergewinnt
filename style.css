@@ -326,4 +326,21 @@ display: block;
 }
 
 
+.winner-text, .loser-text {
+  font-size: 1rem;
+  animation: growText 5s ease-in-out forwards;
+  line-height: 1.2;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;  /* Kein Zeilenumbruch */
+  overflow: hidden;
+}
 
+@keyframes growText {
+  from {
+    font-size: 1rem;
+  }
+  to {
+    font-size: 4rem;
+  }
+}
